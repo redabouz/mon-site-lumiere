@@ -49,17 +49,24 @@ header h1 {
     font-size: 1em;
 }
 
-/* Indicateur de temps réel */
-.realtime-indicator {
-    color: #ff5722; /* Rouge orangé */
-    font-weight: bold;
-    margin-left: 10px;
-    animation: blink 1s infinite;
+/* Section pour sélectionner l'utilisateur */
+.user-type {
+    text-align: center;
+    margin: 20px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-@keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0; }
+.user-type label {
+    font-size: 1.2em;
+    margin-right: 10px;
+}
+
+.user-type select {
+    font-size: 1.1em;
+    padding: 5px;
 }
 
 /* Conteneur principal */
