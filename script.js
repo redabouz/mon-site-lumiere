@@ -1,19 +1,15 @@
-// API Key et Channel ID
-const apiKey = "AP60E3PC3ULONGWF";  // Remplace par ta clé API de lecture
-const fieldID = 1;  // Numéro du champ (Field 1)
-
 async function fetchData() {
     try {
-        const response = await fetch(`https://api.thingspeak.com/channels/2739231/fields/${fieldID}.json?api_key=${apiKey}&results=1`);
+        // Utilisation de CORS Anywhere pour contourner le problème CORS
+        const response = await fetch('https://cors-anywhere.herokuapp.com/http://172.20.10.8');
         
         if (!response.ok) {
             throw new Error(`Erreur HTTP : ${response.status}`);
         }
 
-        const data = await response.json();
-        const lightValue = data.feeds[0].field1;  // Récupère la valeur du champ
+        const lightValue = await response.text();
 
-        // Sélectionner l'élément d'affichage et mettre à jour la valeur
+        // Sélectionne l'élément d'affichage et met à jour la valeur
         const display = document.getElementById("data-display");
         display.textContent = `Données du capteur de lumière : ${lightValue}`;
 
@@ -36,4 +32,5 @@ setInterval(fetchData, 5000);
 
 // Charger les données au démarrage
 fetchData();
+
 
