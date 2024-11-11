@@ -1,39 +1,30 @@
-// Remplace par ta Read API Key
-var apiKey = "AP60E3PC3ULONGWF"; // Clé Read API
-var fieldID = "1";  // Numéro de champ (Field 1)
+async function fetchData() {
+    try {
+        console.log("Fetching data...");
+        const response = await fetch('https://cors-anywhere.herokuapp.com/http://172.20.10.8');
+        if (!response.ok) {
+            throw new Error(`Erreur HTTP : ${response.status}`);
+        }
 
-// Fonction pour récupérer les données
-function fetchData() {
-    var url = "https://api.thingspeak.com/channels/2739231/fields/" + fieldID + ".json?api_key=" + apiKey;
+        const lightValue = await response.text();
+        console.log("Données récupérées :", lightValue);
 
-    // Requête AJAX pour récupérer les données
-    fetch(url)
-        .then(response => response.json())
-        .then(data => {
-            // Extraction de la dernière valeur
-            var lastEntry = data.feeds[data.feeds.length - 1];
-            var lightValue = lastEntry.field1;
-            document.getElementById('data-display').textContent = "Données du capteur de lumière : " + lightValue;
+        // Mettre à jour l'affichage
+        const display = document.getElementById("data-display");
+        display.textContent = `Données du capteur de lumière : ${lightValue}`;
 
-            // Mise à jour de la couleur du texte en fonction de la valeur
-            var color = (lightValue < 200) ? 'red' : 'green';
-            document.getElementById('data-display').style.color = color;
-        })
-        .catch(error => {
-            console.error("Erreur lors de la récupération des données : ", error);
-            document.getElementById('data-display').textContent = "Erreur lors de la récupération des données.";
-        });
+        // Changer la couleur en fonction de la valeur
+        if (parseInt(lightValue) < 200) {
+            display.classList.add("red");
+            display.classList.remove("green");
+        } else {
+            display.classList.add("green");
+            display.classList.remove("red");
+        }
+    } catch (error) {
+        console.error("Erreur lors de la récupération des données :", error);
+        document.getElementById("data-display").textContent = `Erreur : ${error.message}`;
+    }
 }
 
-// Récupérer les données toutes les 30 secondes
-setInterval(fetchData, 30000);
-
-// Charger les données au démarrage
-fetchData();
-
-// Capture de la sélection de l'utilisateur
-document.getElementById('user-type').addEventListener('change', function() {
-    var selectedValue = this.value;
-    alert("Vous avez choisi : " + selectedValue);
-});
 
