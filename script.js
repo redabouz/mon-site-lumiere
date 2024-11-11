@@ -1,7 +1,10 @@
 async function fetchData() {
     try {
         console.log("Fetching data...");
-        const response = await fetch('https://cors-anywhere.herokuapp.com/http://172.20.10.8');
+
+        // Utilisation de CORS Anywhere pour contourner le problème CORS
+        const response = await fetch('https://cors-anywhere.herokuapp.com/http://172.20.10.8'); // L'URL de votre Arduino
+
         if (!response.ok) {
             throw new Error(`Erreur HTTP : ${response.status}`);
         }
@@ -26,5 +29,11 @@ async function fetchData() {
         document.getElementById("data-display").textContent = `Erreur : ${error.message}`;
     }
 }
+
+// Récupère les données toutes les 5 secondes automatiquement
+setInterval(fetchData, 5000);
+
+// Charger les données au démarrage
+fetchData();
 
 
