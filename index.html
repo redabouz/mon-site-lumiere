@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surveillance de la Lumière - Bouziane Reda</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- En-tête avec nom et titre -->
+    <header>
+        <h1>Surveillance de la Lumière</h1>
+        <p class="author">Fait par Bouziane Reda</p>
+    </header>
+
+    <!-- Section d'explication supplémentaire -->
+    <section class="intro">
+        <p>
+            Cette interface surveille en temps réel les données du capteur de lumière connectée à votre Arduino. 
+            Utilisez cette interface pour vérifier l'intensité de la lumière dans la pièce. Un point rouge clignotant indique que les données sont actualisées en temps réel.
+            <span class="realtime-indicator">● Temps réel</span>
+        </p>
+    </section>
+
+    <!-- Contenu principal -->
+    <div class="container">
+        <p class="description">
+            Les données du capteur de lumière sont affichées ci-dessous et changent automatiquement. 
+            La couleur change en fonction de l'intensité lumineuse détectée par le capteur.
+        </p>
+
+        <!-- Affichage des données -->
+        <div id="data-display" class="data-display">En attente des données...</div>
+        
+        <!-- Bouton pour actualiser manuellement -->
+        <button onclick="fetchData()">Actualiser les données</button>
+    </div>
+
+    <!-- Pied de page -->
+    <footer>
+        <p>&copy; 2024 Bouziane Reda. Tous droits réservés.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

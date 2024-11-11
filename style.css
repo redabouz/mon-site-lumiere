@@ -1,0 +1,150 @@
+/* Styles généraux */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background: linear-gradient(135deg, #f6f6f6, #d9d9d9); /* Dégradé de gris clair */
+    color: #333;
+}
+
+/* En-tête */
+header {
+    text-align: center;
+    color: #333;
+    padding: 20px;
+    background-color: #ffc107; /* Jaune doux */
+    width: 100%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    font-size: 2em;
+    margin: 0;
+}
+
+.author {
+    font-size: 1.1em;
+    font-weight: 300;
+    color: #555;
+}
+
+/* Section d'introduction */
+.intro {
+    text-align: center;
+    margin: 20px;
+    padding: 10px 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    color: #333;
+    max-width: 600px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.intro p {
+    margin: 0;
+    font-size: 1em;
+}
+
+/* Indicateur de temps réel */
+.realtime-indicator {
+    color: #ff5722; /* Rouge orangé */
+    font-weight: bold;
+    margin-left: 10px;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* Conteneur principal */
+.container {
+    text-align: center;
+    background-color: #ffffff;
+    padding: 30px 20px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    max-width: 400px;
+    width: 90%;
+    margin-top: 20px;
+    transition: transform 0.3s ease;
+    border: 2px solid #ffc107; /* Bordure jaune */
+}
+
+.container:hover {
+    transform: scale(1.02);
+}
+
+/* Description de la surveillance */
+.description {
+    font-size: 1em;
+    color: #666;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+/* Affichage des données */
+.data-display {
+    font-size: 1.4em;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    transition: color 0.3s ease, background-color 0.3s ease;
+    border: 2px solid #ddd;
+}
+
+/* Couleurs pour les valeurs */
+.green {
+    color: #388e3c;
+    background-color: #e8f5e9;
+    border-color: #388e3c;
+}
+
+.red {
+    color: #d32f2f;
+    background-color: #ffebee;
+    border-color: #d32f2f;
+}
+
+/* Bouton */
+button {
+    padding: 12px 25px;
+    font-size: 1em;
+    background-color: #ffc107;
+    color: #333;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: #ffb300;
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+/* Pied de page */
+footer {
+    margin-top: auto;
+    padding: 15px;
+    text-align: center;
+    background-color: #ffc107;
+    color: #333;
+    width: 100%;
+    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.9em;
+}
