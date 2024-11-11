@@ -22,6 +22,15 @@
         </p>
     </section>
 
+    <!-- Section pour sélectionner le type d'utilisateur -->
+    <section class="user-type">
+        <label for="user-type">Choisissez votre type :</label>
+        <select id="user-type" name="user-type">
+            <option value="etudiant">Étudiant</option>
+            <option value="prof">Professeur</option>
+        </select>
+    </section>
+
     <!-- Contenu principal -->
     <div class="container">
         <p class="description">
@@ -47,6 +56,7 @@
         var apiKey = "AP60E3PC3ULONGWF"; // Clé Read API
         var fieldID = "1";  // Numéro de champ (Field 1)
 
+        // Fonction pour récupérer les données
         function fetchData() {
             var url = "https://api.thingspeak.com/channels/2739231/fields/" + fieldID + ".json?api_key=" + apiKey;
 
@@ -74,7 +84,12 @@
         
         // Charger les données au démarrage
         fetchData();
+
+        // Capture de la sélection de l'utilisateur
+        document.getElementById('user-type').addEventListener('change', function() {
+            var selectedValue = this.value;
+            alert("Vous avez choisi : " + selectedValue);
+        });
     </script>
 </body>
 </html>
-
